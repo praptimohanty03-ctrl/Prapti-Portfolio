@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prapti Mohanty | Social Media Manager & Digital Marketing Portfolio</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--light), var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.1rem;
+            color: var(--accent);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .card p, .card li {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--darker);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.4rem;
+            color: var(--light);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .company {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item .date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin: 0.3rem;
+            font-size: 0.9rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* Strategy Flow */
+        .strategy-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .strategy-step {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        .step-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: var(--gray);
+        }
+
+        .arrow-down {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* Case Studies */
+        .case-study {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .case-study h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .case-study .objective {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .case-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+        }
+
+        .case-card h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .kpi-tag {
+            background: rgba(236, 72, 153, 0.2);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        /* Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .metric-formula {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Workflow */
+        .workflow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .workflow-step {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .workflow-step::after {
+            content: '↓';
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        .workflow-step:last-child::after {
+            display: none;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .cert-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+
+        .cert-card .issuer {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Why Me */
+        .why-me-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .why-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            margin: 0 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Animations */
+        @keyframes gradient {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(30deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .about-photo-container {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .photo-wrapper img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-wrapper:hover img {
+            transform: scale(1.05);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .strategy-step {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .workflow-step::after {
+                display: none;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">PM</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>PRAPTI MOHANTY</h1>
+            <p class="subtitle">Social Media Manager | Digital Marketing | Brand Storytelling</p>
+            <p class="tagline">Creating meaningful digital experiences through creativity, strategy & analytics</p>
+            <div class="cta-buttons">
+                <a href="#case-studies" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section id="about" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Hello, I'm Prapti</h2>
+            <p class="section-subtitle">MBA candidate specializing in Marketing & International Business</p>
+            <div class="card" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray);">
+                    I am an MBA candidate specializing in <strong style="color: var(--light);">Marketing & International Business</strong>, with a strong foundation in storytelling, content strategy, and digital marketing.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray); margin-top: 1rem;">
+                    My background in <strong style="color: var(--light);">English Literature</strong> helps me understand audience psychology, brand communication, and creative storytelling, while my marketing experience allows me to transform ideas into measurable digital strategies.
+                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--gray); margin-top: 1rem;">
+                    I specialize in creating platform-specific content, managing social media communities, and analyzing performance to improve brand growth.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section class="container">
+        <div class="fade-in">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">A marketing enthusiast passionate about building brands through content, creativity, and data-driven decisions</p>
+
+            <!-- Profile Photo Section -->
+            <div class="about-photo-container" style="display: flex; justify-content: center; margin-bottom: 3rem;">
+                <div class="photo-wrapper" style="position: relative;">
+                    <div class="photo-glow" style="position: absolute; inset: -10px; background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent)); border-radius: 50%; filter: blur(20px); opacity: 0.6; animation: pulse 3s ease-in-out infinite;"></div>
+                    <img src="assets/profile.jpg" 
+                         alt="Prapti Mohanty - Social Media Manager" 
+                         style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,0.1); position: relative; z-index: 1; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                </div>
+            </div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Creative Storytelling</h3>
+                    <p>Transforming brand narratives into compelling stories that resonate with audiences</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">👥</div>
+                    <h3>Consumer Understanding</h3>
+                    <p>Deep insights into audience psychology and behavior patterns</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Social Media Strategy</h3>
+                    <p>Platform-specific strategies that drive engagement and growth</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✍️</div>
+                    <h3>Content Creation</h3>
+                    <p>End-to-end content production from ideation to publishing</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Performance Analysis</h3>
+                    <p>Data-driven optimization and comprehensive reporting</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💬</div>
+                    <h3>Brand Philosophy</h3>
+                    <p>I believe successful brands are built by creating conversations, not just advertisements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Academic Background</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>MBA — Marketing & International Business</h3>
+                        <span style="color: var(--accent); font-weight: 600;">2024 – 2026</span>
+                    </div>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">DBS Global University</p>
+                    <p style="color: var(--gray); margin-bottom: 1rem;">Focused on:</p>
+                    <ul>
+                        <li>Marketing Strategy</li>
+                        <li>Consumer Behaviour</li>
+                        <li>International Business</li>
+                        <li>Digital Marketing</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                        <h3>Bachelor of Arts — English (Hons.)</h3>
+                        <span style="color: var(--accent); font-weight: 600;">2024</span>
+                    </div>
+                    <p style="color: var(--primary); font-weight: 600; margin-bottom: 1rem;">Kalinga Institute of Industrial Technology</p>
+                    <p style="color: var(--accent); font-weight: 700; margin-bottom: 1rem;">CGPA: 8.4/10</p>
+                    <p style="color: var(--gray); margin-bottom: 1rem;">Developed strong skills in:</p>
+                    <ul>
+                        <li>Communication</li>
+                        <li>Storytelling</li>
+                        <li>Research</li>
+                        <li>Content Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Social Media Executive</h3>
+                    <p class="company">Kryoss Softech Pvt. Ltd.</p>
+                    <p class="date">January 2026 – April 2026</p>
+                    <div class="card" style="margin-top: 1rem;">
+                        <ul>
+                            <li>Built and managed social media presence across Instagram, Facebook, LinkedIn & YouTube</li>
+                            <li>Developed content strategy including content ideation, graphic designing, copywriting, and scheduling</li>
+                            <li>Created consistent weekly content calendars</li>
+                            <li>Managed organic content operations and supported paid campaign planning</li>
+                            <li>Helped establish digital presence for an early-stage technology brand</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <h3>Social Media Marketing Intern</h3>
+                    <p class="company">NazarBattu</p>
+                    <p class="date">June 2025 – August 2025</p>
+                    <div class="card" style="margin-top: 1rem;">
+                        <ul>
+                            <li>Managed content operations across Instagram, Facebook, Snapchat & YouTube</li>
+                            <li>Created 15+ content pieces weekly</li>
+                            <li>Developed social media creatives, captions, and Reels concepts</li>
+                            <li>Improved audience engagement through platform-specific content strategies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <h3>Digital Marketing Intern</h3>
+                    <p class="company">Supervisionary Quad</p>
+                    <p class="date">August 2023 – January 2024</p>
+                    <div class="card" style="margin-top: 1rem;">
+                        <ul>
+                            <li>Created social media graphics and captions</li>
+                            <li>Developed brand identity through consistent content creation</li>
+                            <li>Managed Facebook and Instagram content</li>
+                            <li>Focused on improving audience engagement and digital visibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Skills & Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>🛠️ Technical Skills</h3>
+                    <div>
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Adobe Premiere Pro</span>
+                        <span class="skill-tag">Meta Business Suite</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">MS Office Suite</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>📈 Marketing Skills</h3>
+                    <div>
+                        <span class="skill-tag">Social Media Strategy</span>
+                        <span class="skill-tag">Content Planning</span>
+                        <span class="skill-tag">Copywriting</span>
+                        <span class="skill-tag">Digital Marketing</span>
+                        <span class="skill-tag">Market Research</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Campaign Planning</span>
+                        <span class="skill-tag">Performance Reporting</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Approach -->
+    <section id="strategy" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">My Social Media Strategy Approach</h2>
+            <p class="section-subtitle">How I Build Brand Growth</p>
+            <div class="strategy-flow">
+                <div class="strategy-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Research</h3>
+                        <p>Understanding audience demographics, competitor analysis, and current market trends to identify opportunities</p>
+                    </div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="strategy-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Strategy</h3>
+                        <p>Creating content pillars, defining brand voice, and developing campaign ideas aligned with business goals</p>
+                    </div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="strategy-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Execution</h3>
+                        <p>Managing creatives, writing compelling captions, and scheduling posts for optimal engagement</p>
+                    </div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="strategy-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Analytics</h3>
+                        <p>Tracking reach, engagement rates, and conversion metrics to measure campaign effectiveness</p>
+                    </div>
+                </div>
+                <div class="arrow-down">↓</div>
+                <div class="strategy-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Optimization</h3>
+                        <p>Continuously improving content based on performance data and emerging trends</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="case-studies" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Case Studies</h2>
+
+            <div class="case-study">
+                <h3>ZOMATO SOCIAL MEDIA STRATEGY</h3>
+                <div class="objective">
+                    <strong>Brand Objective:</strong> Build strong customer connection through relatable, entertaining and engaging content
+                </div>
+                <div class="case-study-grid">
+                    <div class="case-card">
+                        <h4>Meme Marketing</h4>
+                        <p>Relatable food-based content, shareable posts, human brand personality</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>Real-Time Marketing</h4>
+                        <p>Trending topics, newsjacking, quick responses to cultural moments</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>Community Building</h4>
+                        <p>Personalized replies, customer conversations, building loyal fanbase</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>Influencer & UGC</h4>
+                        <p>Creator collaborations, audience-generated content amplification</p>
+                    </div>
+                </div>
+                <div class="kpi-tags">
+                    <span class="kpi-tag">Engagement Rate</span>
+                    <span class="kpi-tag">Reach</span>
+                    <span class="kpi-tag">Impressions</span>
+                    <span class="kpi-tag">Shares</span>
+                    <span class="kpi-tag">Comments</span>
+                    <span class="kpi-tag">Conversion Rate</span>
+                    <span class="kpi-tag">Brand Sentiment</span>
+                </div>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(99, 102, 241, 0.1); border-radius: 10px; border-left: 4px solid var(--primary);">
+                    <strong>Key Learning:</strong> A strong brand voice and community connection can turn customers into brand advocates
+                </div>
+            </div>
+
+            <div class="case-study">
+                <h3>T-SERIES SOCIAL MEDIA STRATEGY</h3>
+                <div class="objective">
+                    <strong>Brand Objective:</strong> Maximize content reach, audience growth and music discovery
+                </div>
+                <div class="case-study-grid">
+                    <div class="case-card">
+                        <h4>High Volume Content</h4>
+                        <p>Consistent publishing schedule, multiple content opportunities daily</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>YouTube Strategy</h4>
+                        <p>Music videos, new releases, long-form content optimization</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>Instagram Strategy</h4>
+                        <p>Reels, artist promotions, behind-the-scenes content</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>Twitter/X Strategy</h4>
+                        <p>Trending topics, announcements, real-time engagement</p>
+                    </div>
+                </div>
+                <div class="kpi-tags">
+                    <span class="kpi-tag">CTR</span>
+                    <span class="kpi-tag">Watch Time</span>
+                    <span class="kpi-tag">Average View Duration</span>
+                    <span class="kpi-tag">Subscriber Growth</span>
+                    <span class="kpi-tag">Views</span>
+                    <span class="kpi-tag">Engagement Rate</span>
+                </div>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(99, 102, 241, 0.1); border-radius: 10px; border-left: 4px solid var(--primary);">
+                    <strong>Key Learning:</strong> Consistency, content systems and audience understanding create sustainable growth
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics -->
+    <section id="metrics" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Social Media Metrics I Track</h2>
+            <p class="section-subtitle">Important KPIs for measuring success</p>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Engagement Rate</h3>
+                    <p>Measures audience interaction with content</p>
+                    <div class="metric-formula">
+                        (Likes + Comments + Shares) ÷ Followers × 100
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">Reach</h3>
+                    <p>Number of unique users who saw the content</p>
+                    <div class="metric-formula">
+                        Unique viewers per post
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem;">Impressions</h3>
+                    <p>Total times content was displayed</p>
+                    <div class="metric-formula">
+                        Total views (including repeats)
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">CTR</h3>
+                    <p>Click-through rate from content to action</p>
+                    <div class="metric-formula">
+                        Clicks ÷ Impressions × 100
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3 style="color: var(--secondary); margin-bottom: 0.5rem;">ROI</h3>
+                    <p>Business return from marketing efforts</p>
+                    <div class="metric-formula">
+                        (Revenue - Cost) ÷ Cost × 100
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <h3 style="color: var(--accent); margin-bottom: 0.5rem;">ROAS</h3>
+                    <p>Revenue from paid campaigns</p>
+                    <div class="metric-formula">
+                        Revenue ÷ Ad Spend
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section id="workflow" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Content Creation Workflow</h2>
+            <div class="workflow">
+                <div class="workflow-step">Idea Research</div>
+                <div class="workflow-step">Content Planning</div>
+                <div class="workflow-step">Creative Design</div>
+                <div class="workflow-step">Caption Writing</div>
+                <div class="workflow-step">Publishing</div>
+                <div class="workflow-step">Analytics Review</div>
+                <div class="workflow-step">Optimization</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <h3>Google Foundations of Digital Marketing & E-commerce</h3>
+                    <p class="issuer">Google Career Certificates | Coursera</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Skills: Digital Marketing Fundamentals, E-commerce Strategy, Customer Journey, Online Marketing, Analytics</p>
+                </div>
+                <div class="cert-card">
+                    <h3>Meta Social Media Marketing Certification</h3>
+                    <p class="issuer">Meta</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Skills: Audience Segmentation, Social Media Strategy, Platform Optimization</p>
+                </div>
+                <div class="cert-card">
+                    <h3>Canva Certification</h3>
+                    <p class="issuer">Canva</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">Skills: Visual Design, Brand Consistency, Social Media Creatives</p>
+                </div>
+                <div class="cert-card">
+                    <h3>AIT Global Immersion Program</h3>
+                    <p class="issuer">AIT</p>
+                    <p style="color: var(--gray); font-size: 0.9rem;">International business exposure and cross-cultural communication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Me -->
+    <section id="why-me" class="container">
+        <div class="fade-in">
+            <h2 class="section-title">What I Bring To A Brand</h2>
+            <div class="why-me-grid">
+                <div class="why-card card">
+                    <div class="icon">✨</div>
+                    <h3>Creative Storytelling Mindset</h3>
+                    <p style="color: var(--gray);">Transforming brand messages into compelling narratives</p>
+                </div>
+                <div class="why-card card">
+                    <div class="icon">🧠</div>
+                    <h3>Marketing Knowledge</h3>
+                    <p style="color: var(--gray);">Strong theoretical foundation with practical application</p>
+                </div>
+                <div class="why-card card">
+                    <div class="icon">🚀</div>
+                    <h3>Social Media Execution</h3>
+                    <p style="color: var(--gray);">Hands-on experience across all major platforms</p>
+                </div>
+                <div class="why-card card">
+                    <div class="icon">📊</div>
+                    <h3>Data-Driven Decisions</h3>
+                    <p style="color: var(--gray);">Analytics-backed strategy optimization</p>
+                </div>
+                <div class="why-card card">
+                    <div class="icon">🔄</div>
+                    <h3>Adaptability & Learning</h3>
+                    <p style="color: var(--gray);">Continuously evolving with digital trends</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1)); border-radius: 20px;">
+                <p style="font-size: 1.2rem; color: var(--light);">My goal is to create content that not only looks good but delivers <strong style="color: var(--accent);">measurable impact</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container">
+        <div class="fade-in">
+            <div class="contact-section">
+                <h2 class="section-title" style="margin-bottom: 0.5rem;">Let's Connect</h2>
+                <p style="color: var(--gray); margin-bottom: 2rem;">Ready to elevate your brand's digital presence?</p>
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Prapti Mohanty</h3>
+                    <p style="color: var(--gray);">Social Media Manager | Digital Marketing Enthusiast</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:praptimohanty03@gmail.com" class="contact-link">
+                        <span>📧</span> praptimohanty03@gmail.com
+                    </a>
+                    <a href="https://linkedin.com/in/prapti-mohanty-077443285" target="_blank" class="contact-link">
+                        <span>🔗</span> LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Prapti Mohanty. Crafted with creativity and strategy.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
